@@ -230,7 +230,7 @@
         </div>
     </section>
     <!-- comments -->
-    <section class="comments">
+    <section class="comments" id="comments">
        <div class="container">
             <div class="title animate" data-animate="fadeInUp">
                 <div class="name">
@@ -580,10 +580,14 @@
         let btn = document.getElementById("burger");
         let menu = document.getElementById("Navbar"),
         menuClass = menu.className,
-        btnClass = btn.className;
+        btnClass = btn.className,
+        links = document.querySelectorAll('.navbar__link');
         function _boot() 
         {
             btn.addEventListener('click', switchMenu);
+            links.forEach(link => {
+                link.addEventListener('click', goLink);
+            });
         }
         function switchMenu(e) 
         {
@@ -599,6 +603,11 @@
     		     menu.className = menuClass;
                  btn.className = btnClass;
             }
+        }
+        function goLink(e)
+        {
+    		menu.className = menuClass;
+            btn.className = btnClass;
         }
         _boot();
     </script>
